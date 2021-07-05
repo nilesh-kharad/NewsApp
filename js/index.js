@@ -11,7 +11,8 @@ function source() {
 function myFunction() {
     console.log("sources", sources);
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', `https://newsapi.org/v2/everything?q=${sources}&apiKey=ec6b60c2fe0340fbbceab5af29568ee2`, true);
+    // xhr.open('GET', `https://newsapi.org/v2/everything?q=${sources}&apiKey=ec6b60c2fe0340fbbceab5af29568ee2`, true);
+    xhr.open('GET', `https://gnews.io/api/v4/search?q=${sources}&token=5b57dc555f9f31ce07d034724bae7abf`, true);
     let newshtml = "";
     let textcolor = 10;
     if (textcolor % 2 == 0) {
