@@ -23,9 +23,18 @@
         .custom-margin {
             margin-right: 50px;
         }
-        .overflow-hidden{
+
+        .overflow-hidden {
             overflow: hidden;
         }
+        @media screen and (max-width: 480px) {
+                body{
+                    background-color: lightblue;
+                }
+                .newsbadge{
+                    opacity: 0.2;
+                }
+            }
     </style>
 </head>
 
@@ -57,7 +66,7 @@
         </div>
     </nav>
     <div class="container my-3">
-        <h3>Top News <span class="badge badge-secondary"> New</span></h3>
+        <h3>Top News <span class="badge badge-secondary newsbadge"> New</span></h3>
         <hr>
         <div class="accordion" id="newsaccordion">
 

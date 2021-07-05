@@ -8,18 +8,18 @@ function source() {
     console.log("sources", sources);
     myFunction();
 }
-function myFunction(){
+function myFunction() {
     console.log("sources", sources);
     const xhr = new XMLHttpRequest();
     xhr.open('GET', `https://newsapi.org/v2/everything?q=${sources}&apiKey=ec6b60c2fe0340fbbceab5af29568ee2`, true);
     let newshtml = "";
     let textcolor = 10;
-    if(textcolor%2==0){
+    if (textcolor % 2 == 0) {
         accordion.style.color = "blue";
-    }else{
+    } else {
         accordion.style.color = "black";
     }
-    textcolor +=1;
+    textcolor += 1;
     xhr.onload = function () {
         if (this.status === 200) {
             let json = JSON.parse(this.responseText);
@@ -30,7 +30,7 @@ function myFunction(){
                                 <h5 class="mb-0 overflow-hidden">
                                     <button class=" btn btn-link collapsed" data-toggle="collapse" data-target="#collapse${index}" aria-expanded="true" aria-controls="collapse${index}">
                                             <div class="overflow-hidden">
-                                            Breaking News ${index + 1}: ${elements['title']}
+                                                Breaking News ${index + 1}: ${elements['title']}
                                             </div>
                                     </button>
                                 </h5>
