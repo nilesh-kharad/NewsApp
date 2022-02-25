@@ -1,18 +1,16 @@
-console.log("hello");
 let accordion = document.querySelector(".accordion");
 let sources = 'world';
 function source() {
     let A = document.querySelector("#searchforsource").value;
     sources = A;
-    console.log("A", A);
-    console.log("sources", sources);
     myFunction();
 }
 function myFunction() {
     console.log("sources", sources);
     const xhr = new XMLHttpRequest();
     // xhr.open('GET', `https://newsapi.org/v2/everything?q=${sources}&apiKey=ec6b60c2fe0340fbbceab5af29568ee2`, true);
-    xhr.open('GET', `https://gnews.io/api/v4/search?q=${sources}&token=5b57dc555f9f31ce07d034724bae7abf`, true);
+    // xhr.open('GET', `https://gnews.io/api/v4/search?q=${sources}&token=b731fff2d237429d981df6a967c657a2`, true);
+    xhr.open('GET',`https://newsapi.org/v2/everything?q=${sources}&sortBy=publishedAt&apiKey=b731fff2d237429d981df6a967c657a2`,true)
     let newshtml = "";
     let textcolor = 10;
     if (textcolor % 2 == 0) {
