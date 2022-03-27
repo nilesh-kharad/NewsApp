@@ -37,7 +37,7 @@ function myFunction() {
 
                             <div id="collapse${index}" class="collapse mb-0" aria-labelledby="heading${index}" data-parent=".accordion">
                                 <div class="card-body">                               
-                                      <img class="rounded mx-auto d-block" src="${elements['image']}" alt="Img." width="250px"><hr>
+                                      <img class="rounded mx-auto d-block" src="${elements['urlToImage']}" alt="Img." width="250px"><hr>
                                       ${elements['content']}. <a href="${elements['url']}" target="_blank">Read more here...</a>
                                   </div>
                             </div>
