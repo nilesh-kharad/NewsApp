@@ -10,7 +10,7 @@ function myFunction() {
     const xhr = new XMLHttpRequest();
     // xhr.open('GET', `https://newsapi.org/v2/everything?q=${sources}&apiKey=ec6b60c2fe0340fbbceab5af29568ee2`, true);
     // xhr.open('GET', `https://gnews.io/api/v4/search?q=${sources}&token=b731fff2d237429d981df6a967c657a2`, true);
-    xhr.open('GET',`https://newsapi.org/v2/everything?q=${sources}&sortBy=publishedAt&apiKey=b731fff2d237429d981df6a967c657a2`,true)
+    xhr.open('GET', `https://newsapi.org/v2/everything?q=${sources}&sortBy=publishedAt&apiKey=b731fff2d237429d981df6a967c657a2`, true)
     let newshtml = "";
     let textcolor = 10;
     if (textcolor % 2 == 0) {
@@ -20,11 +20,12 @@ function myFunction() {
     }
     textcolor += 1;
     xhr.onload = function () {
-        if (this.status === 200) {
-            let json = JSON.parse(this.responseText);
-            let articles = json.articles;
-            articles.forEach(function (elements, index) {
-                let news = `<div class="card">
+        try {
+            if (this.status === 200) {
+                let json = JSON.parse(this.responseText);
+                let articles = json.articles;
+                articles.forEach(function (elements, index) {
+                    let news = `<div class="card">
                             <div class="card-header" id="heading${index}">
                                 <h5 class="mb-0 overflow-hidden">
                                     <button class=" btn btn-link collapsed" data-toggle="collapse" data-target="#collapse${index}" aria-expanded="true" aria-controls="collapse${index}">
@@ -42,13 +43,17 @@ function myFunction() {
                                   </div>
                             </div>
                         </div>`;
-                newshtml += news;
+                    newshtml += news;
 
-            });
-            accordion.innerHTML = newshtml;
+                });
+                accordion.innerHTML = newshtml;
 
-        } else {
-            console.log("some err");
+            } else {
+                console.log("some err");
+            }
+        }
+        catch (e) {
+            console.log(e)
         }
     }
     xhr.send()
